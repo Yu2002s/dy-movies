@@ -1,0 +1,11 @@
+### 获取主页的类型列表
+GET {{host}}/vodTypes
+
+### 获取所有类型列表
+GET {{host}}/vodTypes/all
+
+### 获取父类型列表
+GET {{host}}/vodTypes/parent
+
+### 获取所有类型列表(管理员)
+GET {{host}}/admin/vodTypes?flag=ffm3u8

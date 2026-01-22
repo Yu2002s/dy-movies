@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.jdynb.dymovies.mapper.VodSearchMapper">
+
+    <select id="findList" resultType="xyz.jdynb.dymovies.common.entity.VodDetail">
+        select v.id, v.vid, v.name, v.tid, v.flag, v.note, v.update_time, v.pic, v.year, v.director, v.lang,
+        v.area, v.actor, v.year
+        from dy_movies.vod_detail v
+        <where>
+            <if test="flag != null and flag != ''">
+                v.flag = #{flag}
+            </if>
+            <if test="tid == null and pid != null">
+                and v.tid in (select id from dy_movies.vod_type where
+                <if test="flag != null and flag != ''">
+                    flag = #{flag} and
+                </if>
+                pid = #{pid})
+            </if>
+            <if test="tid != null and tid != 0">
+                and tid = #{tid}
+            </if>
+            <if test="yearEnd == null and year != null and year != ''">
+                and v.year = #{year}
+            </if>
+            <if test="yearEnd != null and yearEnd != ''">
+                and v.year between #{year} and #{yearEnd}
+            </if>
+            <if test="area != null and area != ''">
+                and v.area like concat('%', #{area}, '%')
+            </if>
+            <if test="keyword != null and keyword != ''">
+                and v.name like concat('%', #{keyword}, '%')
+            </if>
+        </where>
+        order by v.year
+        <choose>
+            <when test="sort == 1">
+                desc
+            </when>
+            <otherwise>
+                asc
+            </otherwise>
+        </choose>
+        , v.update_time
+        <choose>
+            <when test="sort == 1">
+                desc
+            </when>
+            <otherwise>
+                asc
+            </otherwise>
+        </choose>
+        limit #{pageOffset}, #{pageSize}
+    </select>
+    <select id="findNameByKeyword" resultType="java.lang.String">
+        select name
+        from dy_movies.vod_detail
+        where flag = #{flag} and name like concat('%', #{keyword}, '%')
+        order by update_time desc limit 10
+    </select>
+</mapper>

@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "strict": true,
+    "module": "ESNext",
+    "lib": ["ESNext", "DOM"],
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "allowJs": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": ["vite/client", "element-plus/global", "unplugin-icons/types/vue", "node"],
+    "skipLibCheck": true,
+    "noImplicitAny": false
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/auto-imports.d.ts",
+    "src/components.d.ts"
+  ],
+  "exclude": ["node_modules", "dist"]
+}

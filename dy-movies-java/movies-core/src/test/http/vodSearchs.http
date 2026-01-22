@@ -1,0 +1,12 @@
+### 搜索影片
+POST {{host}}/vodSearchs
+Content-Type: application/json
+Api-Key: m8wZ0TSYN2
+
+{
+  "page": 1,
+  "pageSize": 10,
+  "keyword": "老舅",
+  "flag": "lzm3u8",
+  "sort": 1
+}

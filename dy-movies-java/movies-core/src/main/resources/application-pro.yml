@@ -1,0 +1,22 @@
+server:
+  # 生产环境运行端口
+  port: 8001
+spring:
+  datasource:
+    url: jdbc:mysql://1Panel-mysql-U1sg:3306/dy_movies?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&allowMultiQueries=true&rewriteBatchedStatements=true
+    password: wuxianggujun
+  quartz:
+    properties:
+      org:
+        quartz:
+          scheduler:
+            skipUpdateCheck: false # 跳过更新检查。生产部署要禁止
+  data:
+    redis:
+      host: 1Panel-redis-B4va
+      password: jdy200255
+
+# 配置日志信息
+logging:
+  file:
+    name: server.log

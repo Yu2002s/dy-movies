@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:statusBarForeground="?attr/colorSurface">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:title="">
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/edit_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    app:autoShowKeyboard="true"
+                    app:backHandlingEnabled="true"
+                    app:hideNavigationIcon="true"
+                    app:iconifiedByDefault="false"
+                    app:queryHint="@string/searchbar_hint"
+                    app:searchIcon="@drawable/baseline_search_24" />
+
+            </com.google.android.material.appbar.MaterialToolbar>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/search_tab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:tabMode="scrollable" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:visibility="gone"
+                android:id="@+id/tips_card"
+                android:layout_margin="10dp"
+                app:contentPadding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:drawablePadding="10dp"
+                    android:text="点击下面选项可进行切换线路搜索"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:drawableEndCompat="@drawable/baseline_close_24"
+                    app:drawableStartCompat="@drawable/baseline_info_24" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/suggest_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/index_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/search_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

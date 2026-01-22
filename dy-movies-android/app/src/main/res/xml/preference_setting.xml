@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:title="用户信息">
+        <Preference
+            app:icon="@drawable/baseline_person_24"
+            app:key="userinfo" />
+        <Preference
+            app:icon="@drawable/baseline_close_24"
+            app:key="login" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:title="播放设置">
+        <Preference
+            app:fragment="xyz.jdynb.dymovies.ui.fragment.setting.PlayerSettingFragment"
+            app:icon="@drawable/baseline_play_circle_filled_24"
+            app:summary="全局播放设置"
+            app:title="通用设置" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:title="界面设置">
+
+        <SwitchPreferenceCompat
+            app:defaultValue="false"
+            app:icon="@drawable/baseline_style_24"
+            app:key="dark_theme"
+            app:summary="开启后应用全局使用暗色主题"
+            app:title="深色模式" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:title="下载设置">
+
+        <Preference
+            app:icon="@drawable/baseline_download_for_offline_24"
+            app:key="download_manager"
+            app:title="下载列表" />
+
+        <EditTextPreference
+            app:icon="@drawable/baseline_sd_storage_24"
+            app:key="download_path"
+            app:dialogMessage="请正确设置保存路径（绝对路径）\n例如: /storage/emulated/0/Download/test"
+            app:title="下载路径"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:icon="@drawable/baseline_downloading_24"
+            app:key="idm_package_name"
+            app:defaultValue="idm.internet.download.manager.plus"
+            app:title="IDM包名"
+            app:useSimpleSummaryProvider="true"
+            app:dialogMessage="请设置IDM+的App 包名，什么是包名？具体请百度如何查看App的包名，一般默认即可。" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:title="储存相关">
+        <Preference
+            app:icon="@drawable/baseline_clear_all_24"
+            app:iconSpaceReserved="false"
+            app:key="clear_cache"
+            app:summary="清理播放和下载时的缓存文件，释放储存空间"
+            app:title="清理缓存" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:title="关于">
+
+        <Preference
+            app:icon="@drawable/baseline_warning_24"
+            app:iconSpaceReserved="false"
+            app:key="usage_dep"
+            app:summary="App使用的第三方依赖清单"
+            app:title="第三方依赖库" />
+        <Preference
+            app:icon="@drawable/baseline_gavel_24"
+            app:iconSpaceReserved="false"
+            app:key="statement"
+            app:title="免责声明" />
+        <Preference
+            app:icon="@drawable/baseline_logo_dev_24"
+            app:iconSpaceReserved="false"
+            app:key="dev"
+            app:summary="\@冬日暖雨"
+            app:title="作者" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:title="其它App">
+
+        <Preference
+            app:iconSpaceReserved="false"
+            app:key="splitlanzou"
+            app:summary="第三方蓝奏网盘，支持上传100M+"
+            app:title="SplitLanzou" />
+
+    </PreferenceCategory>
+</androidx.preference.PreferenceScreen>
