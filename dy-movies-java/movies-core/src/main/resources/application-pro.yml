@@ -2,9 +2,10 @@ server:
   # 生产环境运行端口
   port: 8001
 spring:
+  # TODO: 配置数据源，如何配置请百度
   datasource:
     url: jdbc:mysql://1Panel-mysql-U1sg:3306/dy_movies?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&allowMultiQueries=true&rewriteBatchedStatements=true
-    password: wuxianggujun
+    password: 你的密码
   quartz:
     properties:
       org:
@@ -12,9 +13,10 @@ spring:
           scheduler:
             skipUpdateCheck: false # 跳过更新检查。生产部署要禁止
   data:
+    # TODO: redis 配置，如何配置，请百度
     redis:
       host: 1Panel-redis-B4va
-      password: jdy200255
+      password: 
 
 # 配置日志信息
 logging:

@@ -43,10 +43,11 @@ spring:
           startup-delay: 60 #延时启动，要有足够长的时间让你的应用先启动完成后再让Scheduler启动（单位秒）
           overwrite-existing-jobs: false #是否每次系统运行都会清空数据库中的Job信息，重新进行初始化
   # 邮件
+  # TODO 邮箱配置，如何配置请百度
   mail:
     host: smtp.qq.com
-    username: 2475058223@qq.com
-    password: gaxazqyugagadihd
+    username: 你的qq邮箱
+    password: 你的密码 
     port: 465
     protocol: smtp
     ssl:
